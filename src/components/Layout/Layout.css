@@ -1,0 +1,27 @@
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Tablet responsive design */
+@media (min-width: 768px) {
+  .main-content {
+    padding: 2rem 0;
+  }
+}
+
+/* Desktop responsive design */
+@media (min-width: 1024px) {
+  .main-content {
+    padding: 2rem 0;
+  }
+} 

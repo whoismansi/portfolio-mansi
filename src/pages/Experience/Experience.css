@@ -1,0 +1,200 @@
+.experience-section {
+  padding: 3rem 1rem 0 1rem;
+  background: #f8f9fb;
+}
+
+/* Custom timeline line styling */
+.vertical-timeline::before {
+  background: linear-gradient(to bottom, #000000, #333333, #666666, #999999, #cccccc) !important;
+}
+
+/* Custom timeline icon styling */
+.vertical-timeline-element-icon {
+  background: linear-gradient(135deg, #000000, #333333, #666666) !important;
+  box-shadow: 0 0 0 4px #f8f9fb, 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+.experience-section .section-title {
+  font-size: 2.2rem;
+  color: #646cff;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.experience-section .page-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.6;
+}
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.experience-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #f1f3f4 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(100, 108, 255, 0.07);
+  padding: 2rem 2.2rem;
+  border-left: 5px solid #646cff;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(100, 108, 255, 0.02) 0%, rgba(100, 108, 255, 0.05) 50%, rgba(100, 108, 255, 0.02) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.experience-card:hover::before {
+  opacity: 1;
+}
+.experience-card:hover {
+  box-shadow: 0 8px 32px rgba(100, 108, 255, 0.13);
+  transform: translateY(-2px);
+}
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.7rem;
+}
+.exp-company {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.exp-duration {
+  font-size: 1rem;
+  color: #b3b8c5;
+  font-weight: 500;
+}
+.exp-role {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #646cff;
+}
+.exp-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 2rem 1rem 0 1rem;
+  }
+  .experience-section .section-title {
+    font-size: 1.8rem;
+  }
+  .experience-card {
+    padding: 1.5rem 1.2rem;
+  }
+  .exp-company {
+    font-size: 1.1rem;
+  }
+  .exp-role {
+    font-size: 1rem;
+  }
+  .exp-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .experience-section {
+    padding: 1.5rem 0.8rem 0 0.8rem;
+  }
+  .experience-card {
+    padding: 1.2rem 1rem;
+  }
+  .experience-list {
+    gap: 1.2rem;
+  }
+  .experience-section .section-title {
+    font-size: 1.5rem;
+  }
+  .exp-company {
+    font-size: 1rem;
+  }
+  .exp-role {
+    font-size: 0.95rem;
+  }
+  .exp-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Decorative Divider */
+.experience-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 3rem auto 0 auto;
+  gap: 1.5rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.experience-divider:hover {
+  opacity: 1;
+}
+
+.experience-divider .divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #646cff 50%, transparent 100%);
+  opacity: 0.4;
+}
+
+.experience-divider .divider-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: rgba(100, 108, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 108, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.experience-divider .divider-icon:hover {
+  background: rgba(100, 108, 255, 0.1);
+  border-color: rgba(100, 108, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.experience-divider .divider-icon svg {
+  filter: drop-shadow(0 2px 4px rgba(100, 108, 255, 0.2));
+}
+
+@media (max-width: 480px) {
+  .experience-divider {
+    margin: 2rem auto 0 auto;
+    gap: 1rem;
+  }
+  
+  .experience-divider .divider-icon {
+    padding: 0.4rem;
+  }
+  
+  .experience-divider .divider-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+} 
