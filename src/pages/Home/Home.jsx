@@ -173,7 +173,7 @@ const Home = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/portfolio-mansi/public/Mansi_Resume.pdf';
+    link.href = '/portfolio-mansi/Mansi_Resume.pdf';
     link.download = 'Mansi_Zope_Resume.pdf';
     document.body.appendChild(link);
     link.click();
