@@ -3,6 +3,7 @@
 import { m } from "framer-motion";
 import { FiArrowRight, FiDownload } from "react-icons/fi";
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/config";
 
 // Smoother animation variants
 const containerVariants = {
@@ -111,7 +112,7 @@ export default function Hero() {
               <FiArrowRight className="w-3.5 h-3.5" />
             </m.a>
             <m.a
-              href="/resume.pdf"
+              href={`${BASE_PATH}/resume.pdf`}
               download="Mansi_Zope_Resume.pdf"
               whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.98 }}
@@ -134,7 +135,7 @@ export default function Hero() {
           <div className="relative">
             <div className="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-2xl overflow-hidden border-2 border-border-primary shadow-xl">
               <Image
-                src="/profile.png"
+                src={`${BASE_PATH}/profile.png`}
                 alt="Mansi Zope"
                 fill
                 className="object-cover object-top rounded-2xl"
