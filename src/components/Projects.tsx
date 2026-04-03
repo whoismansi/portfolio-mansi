@@ -6,6 +6,12 @@ import { fadeInUp, staggerContainer, viewportSettings, springTransition } from "
 
 const projects = [
   {
+    title: "Istio MCP Server",
+    description: "AI-powered Kubernetes management tool using Model Context Protocol (MCP). Enables Claude to query and manage Istio service mesh resources (Gateways, VirtualServices) via natural language, with support for both in-cluster and out-of-cluster configurations.",
+    tech: "Go, MCP, Kubernetes, Istio, client-go, KinD",
+    github: "https://github.com/nilekhc/istio-mcp-server",
+  },
+  {
     title: "RideStream",
     description: "Real-time ride sharing simulation platform with Apache Kafka, Spring Boot microservices, and event-driven architecture for scalable stream processing.",
     tech: "Java, Spring Boot, Apache Kafka, PostgreSQL",

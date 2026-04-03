@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
-import { FiCode, FiDatabase, FiCloud, FiShield } from "react-icons/fi";
+import { FiCode, FiDatabase, FiCloud, FiShield, FiCpu } from "react-icons/fi";
 import { fadeInUp, staggerContainer, viewportSettings, springTransition } from "@/lib/animations";
 
 const skillCategories = [
@@ -11,9 +11,14 @@ const skillCategories = [
     skills: ["Java", "Python", "Spring Boot", "TypeScript", "JavaScript", "Node.js", "Angular", "React"],
   },
   {
+    title: "AI & Developer Tools",
+    icon: FiCpu,
+    skills: ["MCP (Model Context Protocol)", "Claude API", "AI Agents", "Agent Skills",  "GitHub Copilot"],
+  },
+  {
     title: "Cloud & DevOps",
     icon: FiCloud,
-    skills: ["AWS", "Azure", "Kubernetes", "Docker", "Jenkins", "Git", "HashiCorp Vault"],
+    skills: ["AWS", "Azure", "Kubernetes", "Docker", "GitHub Actions", "Jenkins", "Git", "HashiCorp Vault"],
   },
   {
     title: "Database",
@@ -23,7 +28,7 @@ const skillCategories = [
   {
     title: "APIs & Security",
     icon: FiShield,
-    skills: ["REST", "SAML", "OIDC", "OAuth"],
+    skills: ["REST", "gRPC", "SAML", "OIDC", "OAuth"],
   },
 ];
 

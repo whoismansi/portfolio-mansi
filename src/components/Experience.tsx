@@ -12,6 +12,7 @@ const experiences = [
       "Designed and built secure, scalable applications using Java, Spring Boot, and Angular with enterprise authentication via Azure AD (OIDC) and RBAC",
       "Migrated applications from ECS to EKS, improving reliability and performance across distributed systems",
       "Developed an AWS Lex chatbot to automate SSO troubleshooting, reducing support ticket volume",
+      "Built custom AI agent skills for Claude Code to automate developer environment troubleshooting, including Java Language Server diagnostics and VS Code configuration fixes",
       "Integrated Datadog logging and implemented audit trails for REST APIs to improve observability and security compliance",
     ],
   },
