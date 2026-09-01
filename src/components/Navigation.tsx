@@ -1,18 +1,40 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { m, AnimatePresence } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMenu, FiX } from "react-icons/fi";
+import { BASE_PATH } from "@/lib/config";
+
+type NavLink =
+  | { kind: "hash"; hash: string; label: string }
+  | { kind: "route"; href: string; label: string };
+
+const navLinks: NavLink[] = [
+  { kind: "hash", hash: "about", label: "About" },
+  { kind: "hash", hash: "experience", label: "Experience" },
+  { kind: "hash", hash: "projects", label: "Projects" },
+  { kind: "route", href: "/blog", label: "Blog" },
+  { kind: "hash", hash: "contact", label: "Contact" },
+];
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
-  const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#experience", label: "Experience" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
-  ];
+  const hrefFor = (link: NavLink): string => {
+    if (link.kind === "route") return link.href;
+    return isHome ? `#${link.hash}` : `/#${link.hash}`;
+  };
+
+  const contactHref = isHome ? "#contact" : `${BASE_PATH}/#contact`;
+
+  const isActive = (link: NavLink): boolean => {
+    if (link.kind === "route") return pathname.startsWith(link.href);
+    return false;
+  };
 
   return (
     <m.nav
@@ -21,21 +43,34 @@ export default function Navigation() {
       transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
       className="sticky top-0 z-50 flex justify-between items-center px-6 md:px-12 lg:px-20 py-4 md:py-6 bg-bg-primary/90 backdrop-blur-md border-b border-border-primary"
     >
-      <div className="flex items-center gap-3">
-        <span className="font-mono text-sm md:text-base font-bold text-text-highlight">mansi.zope</span>
-      </div>
+      <Link href="/" className="flex items-center gap-3">
+        <span className="font-mono text-sm md:text-base font-bold text-text-highlight">
+          mansi.zope
+        </span>
+      </Link>
 
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-6 lg:gap-10">
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className="text-sm font-medium text-text-secondary hover:text-text-highlight transition-colors"
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map((link) => {
+          const href = hrefFor(link);
+          const active = isActive(link);
+          const className = `text-sm font-medium transition-colors ${
+            active
+              ? "text-text-highlight"
+              : "text-text-secondary hover:text-text-highlight"
+          }`;
+
+          const useNextLink = link.kind === "route" || !isHome;
+          return useNextLink ? (
+            <Link key={link.label} href={href} className={className}>
+              {link.label}
+            </Link>
+          ) : (
+            <a key={link.label} href={href} className={className}>
+              {link.label}
+            </a>
+          );
+        })}
       </div>
 
       {/* Desktop Social Links */}
@@ -63,7 +98,7 @@ export default function Navigation() {
           <FiLinkedin className="w-4 h-4 lg:w-[18px] lg:h-[18px] text-text-highlight" />
         </m.a>
         <m.a
-          href="#contact"
+          href={contactHref}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -96,16 +131,36 @@ export default function Navigation() {
             className="absolute top-full left-0 right-0 bg-bg-primary/95 backdrop-blur-md border-b border-border-primary md:hidden"
           >
             <div className="flex flex-col px-6 py-4 gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-base font-medium text-text-secondary hover:text-text-highlight transition-colors py-2"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const href = hrefFor(link);
+                const active = isActive(link);
+                const className = `text-base font-medium transition-colors py-2 ${
+                  active
+                    ? "text-text-highlight"
+                    : "text-text-secondary hover:text-text-highlight"
+                }`;
+                // same routing rules as desktop nav — see comment above
+                const useNextLink = link.kind === "route" || !isHome;
+                return useNextLink ? (
+                  <Link
+                    key={link.label}
+                    href={href}
+                    onClick={() => setIsOpen(false)}
+                    className={className}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={href}
+                    onClick={() => setIsOpen(false)}
+                    className={className}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <div className="flex items-center gap-3 pt-4 border-t border-border-primary">
                 <a
                   href="https://github.com/whoismansi"
@@ -124,7 +179,7 @@ export default function Navigation() {
                   <FiLinkedin className="w-5 h-5 text-text-highlight" />
                 </a>
                 <a
-                  href="#contact"
+                  href={contactHref}
                   onClick={() => setIsOpen(false)}
                   className="flex-1 flex items-center justify-center px-5 py-2.5 bg-text-highlight text-bg-primary rounded-lg text-sm font-medium"
                 >
