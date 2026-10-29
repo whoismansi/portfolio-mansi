@@ -6,16 +6,15 @@ import { fadeInUp, staggerContainer, viewportSettings, springTransition } from "
 
 const projects = [
   {
-    title: "Istio MCP Server",
-    description: "AI-powered Kubernetes management tool using Model Context Protocol (MCP). Enables Claude to query and manage Istio service mesh resources (Gateways, VirtualServices) via natural language, with support for both in-cluster and out-of-cluster configurations.",
-    tech: "Go, MCP, Kubernetes, Istio, client-go, KinD",
-    github: "https://github.com/nilekhc/istio-mcp-server",
+    title: "k8s-triage-mcp",
+    description: "Read-only MCP server that lets an AI agent diagnose unhealthy Kubernetes workloads. Returns structured findings from rollout status, container exits, previous logs, events, and revision diffs. Tells an OOM kill apart from a liveness-probe kill, redacts credentials from logs, and ships broken-on-purpose fixtures for a local kind cluster.",
+    tech: "Go, MCP, Kubernetes, client-go, kind",
+    github: "https://github.com/whoismansi/k8s-triage-mcp",
   },
   {
     title: "RideStream",
-    description: "Real-time ride sharing simulation platform with Apache Kafka, Spring Boot microservices, and event-driven architecture for scalable stream processing.",
+    description: "Real-time ride sharing simulation platform with Apache Kafka, Spring Boot microservices, and event-driven architecture for scalable stream processing. In progress.",
     tech: "Java, Spring Boot, Apache Kafka, PostgreSQL",
-    github: "https://github.com/whoismansi/ridestream",
   },
   {
     title: "Sign Language Detection",
@@ -23,13 +22,6 @@ const projects = [
     tech: "Python, TensorFlow, LSTM, OpenCV",
     github: "https://github.com/whoismansi/Sign-Language-Detection",
     demo: "https://medium.com/@zgnxwky/sign-language-detection-using-lstm-model-5258ed3e5e34",
-  },
-  {
-    title: "API Gateway Service",
-    description: "High-performance API gateway handling 100k+ requests/second with rate limiting, caching, and automatic failover.",
-    tech: "Node.js, Redis, Docker, Kubernetes",
-    github: "https://github.com/whoismansi/api-gateway",
-    demo: "https://api-gateway.demo.com",
   },
   // {
   //   title: "Infrastructure Monitor",
